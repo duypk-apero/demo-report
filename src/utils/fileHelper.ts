@@ -2,6 +2,19 @@ import { MarkdownFile } from '../types';
 import fs from 'fs';
 import path from 'path';
 
+// Improved date formatting function
+function formatDate(dateString: string): string {
+  const date = new Date(dateString);
+  const options: Intl.DateTimeFormatOptions = { 
+    year: 'numeric', 
+    month: 'short', 
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit'
+  };
+  return new Date().toLocaleDateString('en-US', options);
+}
+
 // Static data for GitHub Pages deployment and fallback
 const staticMarkdownFiles: MarkdownFile[] = [
   {
@@ -26,7 +39,7 @@ This document outlines the comprehensive development plan for our application. I
 
 ## Technical Specifications
 The application will be built using React for the frontend and Node.js for the backend, with MongoDB as the database solution.`,
-    lastModified: '2023-03-21 10:53 AM',
+    lastModified: formatDate('2023-03-21T10:53:00'),
     size: '8.4 KB'
   },
   {
@@ -51,7 +64,7 @@ We will use a combination of pre-trained models and custom-trained algorithms to
 - Increase in user engagement by 25%
 - 90% accuracy in content categorization
 - 85% user satisfaction with AI-powered recommendations`,
-    lastModified: '2023-03-21 10:53 AM',
+    lastModified: formatDate('2023-03-21T10:53:00'),
     size: '7.6 KB'
   },
   {
@@ -85,7 +98,7 @@ Our implementation strategy focuses on iterative development with continuous int
 
 ## Deployment Strategy
 We will use a blue-green deployment approach to minimize downtime and risk. Containerization with Docker will ensure consistent environments across development, testing, and production.`,
-    lastModified: '2023-03-21 10:53 AM',
+    lastModified: formatDate('2023-03-21T10:53:00'),
     size: '5.2 KB'
   },
   {
@@ -117,7 +130,7 @@ This document outlines the technical architecture of our application, detailing 
 
 ## Scalability Considerations
 The architecture is designed for horizontal scaling, with stateless application servers and distributed caching to handle increased load.`,
-    lastModified: '2023-03-21 10:53 AM',
+    lastModified: formatDate('2023-03-21T10:53:00'),
     size: '4.2 KB'
   },
   {
@@ -142,7 +155,7 @@ This document presents an analysis of Kotlin Multiplatform Mobile (KMM) as a pot
 
 ## Recommendation
 Based on our team's expertise and project requirements, we recommend adopting KMM for our new mobile application development. The initial investment in learning and setup will be offset by the long-term benefits of code sharing and maintenance.`,
-    lastModified: '2023-03-21 10:53 AM',
+    lastModified: formatDate('2023-03-21T10:53:00'),
     size: '2.6 KB'
   }
 ];
@@ -174,7 +187,7 @@ export function getMarkdownFiles(): MarkdownFile[] {
           name: file,
           path: file,
           content: fs.readFileSync(filePath, 'utf-8'),
-          lastModified: stats.mtime.toLocaleString(),
+          lastModified: formatDate(stats.mtime.toString()),
           size: formatFileSize(stats.size),
         };
       });
@@ -205,7 +218,7 @@ export function getMarkdownFileByName(fileName: string): MarkdownFile | null {
         name: fileName,
         path: fileName,
         content: fs.readFileSync(filePath, 'utf-8'),
-        lastModified: stats.mtime.toLocaleString(),
+        lastModified: formatDate(stats.mtime.toString()),
         size: formatFileSize(stats.size),
       };
     } catch (error) {

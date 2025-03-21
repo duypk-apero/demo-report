@@ -16,7 +16,7 @@ Follow these steps to deploy your Markdown Viewer app to GitHub Pages:
 Once your repository is created, GitHub will show commands to push your existing repository. Copy and run the following commands (replace YOUR_USERNAME with your GitHub username and REPO_NAME with your repository name):
 
 ```bash
-git remote add origin https://github.com/YOUR_USERNAME/REPO_NAME.git
+git remote add origin https://github.com/duypk-apero/demo-report.git
 git branch -M main
 git push -u origin main
 ```
