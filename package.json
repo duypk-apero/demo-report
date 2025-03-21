@@ -1,0 +1,36 @@
+{
+  "name": "md-viewer",
+  "version": "1.0.0",
+  "description": "A simple markdown file viewer",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "export": "next build"
+  },
+  "keywords": [
+    "markdown",
+    "viewer"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@tailwindcss/typography": "^0.5.16",
+    "next": "^13.4.9",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-markdown": "^8.0.7",
+    "rehype-highlight": "^6.0.0",
+    "rehype-raw": "^6.1.1",
+    "remark-gfm": "^3.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.4.2",
+    "@types/react": "^18.2.15",
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.26",
+    "tailwindcss": "^3.3.3",
+    "typescript": "^5.1.6"
+  }
+}
